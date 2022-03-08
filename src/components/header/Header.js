@@ -1,50 +1,54 @@
-import React, { useContext, useEffect } from "react"
-import { CompanyContext } from "../CompanyProvider";
+import React, { useContext, useEffect, useState } from "react"
 import Select from 'react-select';
 import makeAnimated from 'react-select/animated';
+import { CompanyContext } from "../company/CompanyProvider";
 
 const animatedComponents = makeAnimated();
 
-export const CompanyList = () => {
-    const { companies, getCompanies } = useContext(CompanyContext)
+export const SearchBar = () => {
+    const { companies, getCompanies, getCompanyAnalysis, companyAnalysis } = useContext(CompanyContext)
 
     useEffect(() => {
         getCompanies()
     }, [])
 
+    const stockOptions = companies.map(company =>
+        ({ value: company.value, label: company.label }))
+
+    const [currentSearch, setCurrentSearch] = useState([]);
+
+    const handleChange = (selectedOptions) => {
+        setCurrentSearch(selectedOptions);
+    }
+
     return (
-        <section >
-            {
-                companies.map(company => {
-                    return (
-                    <>
-                        Name: {company.label}
-                    </>
-                    )
-                })
-            }
-        </section>
+        <>
+            <header>
+                <h3>Search Stock Here</h3>
+                <Select
+                    closeMenuOnSelect={false}
+                    components={animatedComponents}
+                    defaultValue={[stockOptions[0], stockOptions[1]]}
+                    isMulti
+                    options={stockOptions}
+                    onChange={handleChange}
+                />
+            </header>
+            <button
+                type="submit"
+                onClick={(evt) => {
+                    evt.preventDefault();
+                    //building a querystring
+                    const querystring = '?symbol=' + currentSearch.map(
+                        company =>company.value)
+                    // Send GET request to your API
+                    getCompanyAnalysis(querystring)
+                    // .then(() => history.push("/"));
+                }}
+                className="btn btn-primary"
+            >
+                Submit
+            </button>
+        </>
     )
-}
-
-const stockOptions = [
-    { value: 'WH', label: 'Wyndham' },
-    { value: 'HLT', label: 'Hilton Worldwide' },
-    { value: 'CHH', label: 'Choice Hotels' },
-    { value: 'H', label: 'Hyatt' },
-    { value: 'ABNB', label: 'Airbnb' },
-    { value: 'EXPE', label: 'Expedia' },
-    { value: 'TRIP', label: 'Tripadvisor' },
-    { value: 'MAR', label: 'Marriott International' },
-    { value: 'IHG', label: 'InterContinental Hotels' }
-]
-export const AnimatedMulti = () => {
-
-    return (<Select
-        closeMenuOnSelect={false}
-        components={animatedComponents}
-        defaultValue={[stockOptions[4], stockOptions[6], stockOptions[8]]}
-        isMulti
-        options={stockOptions}
-    />)
 }
