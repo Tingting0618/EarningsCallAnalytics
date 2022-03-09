@@ -2,19 +2,19 @@ import { CompanyContext } from "./CompanyProvider";
 import React, { useContext, useEffect } from "react"
 
 export const CompanyList = () => {
-    const { companies, getCompanies } = useContext(CompanyContext)
+    const { companyAnalysis, getCompanyAnalysis } = useContext(CompanyContext)
 
     useEffect(() => {
-        getCompanies()
+        getCompanyAnalysis()
     }, [])
 
     return (
         <section >
             {
-                companies.map(company => {
+                companyAnalysis.map(company => {
                     return (
                     <>
-                        Name: {company.value}
+                        {company.transcript}
                     </>
                     )
                 })

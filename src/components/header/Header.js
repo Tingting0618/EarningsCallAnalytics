@@ -6,7 +6,7 @@ import { CompanyContext } from "../company/CompanyProvider";
 const animatedComponents = makeAnimated();
 
 export const SearchBar = () => {
-    const { companies, getCompanies, getCompanyAnalysis, companyAnalysis } = useContext(CompanyContext)
+    const { companies, getCompanies, getCompanyAnalysis } = useContext(CompanyContext)
 
     useEffect(() => {
         getCompanies()
@@ -40,7 +40,7 @@ export const SearchBar = () => {
                     evt.preventDefault();
                     //building a querystring
                     const querystring = '?symbol=' + currentSearch.map(
-                        company =>company.value)
+                        company => company.value)
                     // Send GET request to your API
                     getCompanyAnalysis(querystring)
                     // .then(() => history.push("/"));
