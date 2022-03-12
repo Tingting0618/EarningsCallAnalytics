@@ -15,7 +15,7 @@ export const SearchBar = () => {
     const stockOptions = companies.map(company =>
         ({ value: company.value, label: company.label }))
 
-    const [currentSearch, setCurrentSearch] = useState([]);
+    const [currentSearch, setCurrentSearch] = useState([{value: 'WH', label: 'Wyndham'},{value: 'ABNB', label: 'Airbnb'}]);
     const [currentYear, setCurrentYear] = useState({
         start: 2018,
         end: 2022
@@ -72,7 +72,6 @@ export const SearchBar = () => {
                         '&end_year=' + currentYear.end
                     // Send GET request to your API
                     getCompanyAnalysis(querystring)
-                    // .then(() => history.push("/"));
                 }}
                 className="btn btn-primary"
             >
