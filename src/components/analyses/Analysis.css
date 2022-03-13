@@ -3,12 +3,13 @@
     flex-wrap: wrap;
     justify-content: space-between;
     flex-direction: column;
-    border: 1px solid rgb(48, 185, 156);
+    border: 1px solid rgb(175, 199, 218);
 }
 
 .analysis {
-    flex-basis: 28%;
-    margin: 1em;
-    padding: 1em;
-    border: 1px solid goldenrod;
+    flex-basis: auto;
+    width: 85%;
+    margin: 2.5em;
+    padding: 2.5em;
+    border: 1px solid rgb(218, 217, 216);
 }

@@ -3,12 +3,12 @@ import "./Analysis.css"
 import { CompanyContext } from "../company/CompanyProvider";
 
 
-export const Analysis1 = () => {
+export const WordTrends = () => {
     const { companyAnalysis } = useContext(CompanyContext)
     // debugger
     return (
         <section className="analysis">
-            <h3 className="analysis__name">Get Words Frequency</h3>
+            <h3 className="analysis__name">The Word Trends</h3>
             <section >
 
             </section>

@@ -1,4 +1,4 @@
-import React, { useContext } from "react"
+import React, { useContext,useEffect } from "react"
 import "./Analysis.css"
 import { CompanyContext } from "../company/CompanyProvider";
 import {
@@ -8,7 +8,7 @@ import {
     BarElement,
     Title,
     Tooltip,
-    Legend,
+    Legend
 } from 'chart.js';
 import { Bar } from 'react-chartjs-2';
 ChartJS.register(CategoryScale, LinearScale, BarElement, Title,
@@ -24,18 +24,23 @@ export const options = {
         },
         title: {
             display: true,
-            text: 'Chart.js Bar Chart',
+            text: 'Top 10 Frequently Mentioned Words',
         },
     },
 };
 
 
-export const Analysis2 = () => {
+export const TopWords = () => {
 
     const { companyAnalysis } = useContext(CompanyContext)
+
     const labels = []
     const freq = []
-    companyAnalysis.forEach(element => labels.push(element.words) && freq.push(element.freq));
+    const wordsArray = companyAnalysis.topWords
+    if (wordsArray === undefined || wordsArray === null) {
+    } else if (wordsArray !== null) {
+        wordsArray.forEach(element => labels.push(element.words) && freq.push(element.freq));
+    }
 
     const data = {
         labels,
@@ -43,23 +48,15 @@ export const Analysis2 = () => {
             {
                 label: 'How many times a word has been mentioned',
                 data: freq,
-                backgroundColor: 'rgba(255, 99, 132, 0.5)',
+                backgroundColor: 'rgba(111, 155, 189, 0.8)',
             }
         ],
     };
-    const options = {
-        plugins: {
-            title: {
-                display: true,
-                text: 'Top 10 Frequently Mentioned Words'
-            }
-        }
-    }
-   
+
     return (
         <section className="analysis" >
             <h3 className="analysis__name">Get Words Frequency</h3>
-            <Bar options={options} data={data}  />
+            <Bar options={options} data={data} />
         </section >
     )
 }
