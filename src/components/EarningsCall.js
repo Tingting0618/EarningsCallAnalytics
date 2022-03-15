@@ -1,24 +1,28 @@
 import React from "react"
-import { SearchBar } from "./header/Header"
-import { WordTrends } from "./analyses/WordTrends"
-import { TopWords } from "./analyses/TopWords"
-import { CompanyProvider } from "./company/CompanyProvider"
+import { Route, Navigate, BrowserRouter, Routes } from "react-router-dom"
+import { ApplicationViews } from "./ApplicationViews"
 import "./EarningsCall.css"
-import { SentimentAnalysis } from "./analyses/Sentiment"
+import { Login } from "./auth/Login"
+import { Register } from "./auth/Register"
+
+const AuthCheck = ({ children }) => {
+    if (localStorage.getItem("lu_token")) {
+        return children
+    }
+    else return <Navigate to="/login" />
+}
 
 export const EarningsCall = () => (
     <>
-        <CompanyProvider>
-            <h2>Earnings Call Text Analytics Platform</h2>
-            <SearchBar />
+        <BrowserRouter>
+            <Routes>
+                <Route  path="*" element={<AuthCheck><ApplicationViews /></AuthCheck> }/>
 
-            <h2>Analysis</h2>
-            <article className="analyses">
-                <TopWords />
-                <WordTrends />
-                <SentimentAnalysis />
-            </article>
-        </CompanyProvider>
+                <Route path="/login" element={<Login />} />
+
+                <Route path="/register" element={<Register />} />
+            </Routes>
+        </BrowserRouter>
+
     </>
-
 )
