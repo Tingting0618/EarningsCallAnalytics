@@ -28,3 +28,36 @@ p {
 strong {
   font-weight: bold;
 }
+
+.companys{
+  display: flex;
+  flex-direction: column;
+  align-items: left;
+  justify-content: space-around;
+}
+.company {
+  border: 1px dashed #a0c0cc;
+  font-size: large;
+  padding: 15px;
+}
+.company__title {
+  font-weight:bolder;
+}
+
+.companyFrom{
+  display: flex;
+  justify-content: flex-start;
+}
+.form-group{
+  padding-bottom: 10px;
+  margin-bottom: 10px
+}
+
+.registration{
+  padding: 1rem;
+  border: 1px dashed black;
+}
+.registration__company {
+  font-size: larger;
+  font-weight: bolder;
+}

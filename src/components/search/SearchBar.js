@@ -52,7 +52,7 @@ export const SearchBar = () => {
 
     return (
         <>
-        <h2>Earnings Call Text Analytics Platform</h2>
+        
             <header>
                 <h3>Search Stock Here</h3>
                 <Select
