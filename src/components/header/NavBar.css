@@ -1,0 +1,22 @@
+.navbar {
+    display: flex;
+    justify-content: space-between;
+}
+
+.navbar__item {
+    list-style-type: none;
+    padding: 1.2rem;
+}
+
+.nav img {
+    float: left;
+    width: 100px;
+    height: 100px;
+  }
+
+.nav {
+    margin: 1.5rem;
+    display: flex;
+    flex-direction: row;
+    justify-content: left;
+}

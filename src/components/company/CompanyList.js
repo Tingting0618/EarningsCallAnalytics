@@ -2,15 +2,15 @@ import { CompanyContext } from "./CompanyProvider";
 import React, { useContext, useEffect } from "react"
 
 export const CompanyList = () => {
-    const { companyAnalysis, getCompanyAnalysis } = useContext(CompanyContext)
+    // const { companyAnalysis, getCompanyAnalysis } = useContext(CompanyContext)
 
-    useEffect(() => {
-        getCompanyAnalysis()
-    }, [])
+    // useEffect(() => {
+    //     getCompanyAnalysis()
+    // }, [])
 
     return (
         <section >
-            {
+            {/* {
                 companyAnalysis.map(company => {
                     return (
                     <>
@@ -18,7 +18,8 @@ export const CompanyList = () => {
                     </>
                     )
                 })
-            }
+            } */}
+            Hello
         </section>
     )
 }
