@@ -3,6 +3,7 @@ import { Route, Routes } from "react-router-dom";
 import { CompanyProvider } from "./company/CompanyProvider"
 import { Home } from "./Home"
 import {CompanyList} from "./company/CompanyList"
+import { CompanyForm } from "./company/CompanyForm";
 
 
 export const ApplicationViews = () => {
@@ -15,8 +16,17 @@ export const ApplicationViews = () => {
 
 
                 <Routes>
-                    <Route path="/company" element={<CompanyList />}/>
+                    <Route path="/companys" element={<CompanyList />}/>
                 </Routes>
+
+                <Routes>
+                    <Route path="/companies/new" element={<CompanyForm />}/>
+                </Routes>
+
+                <Routes>
+                    <Route path="/companies/:companyId/edit" element={<CompanyForm />}/>
+                </Routes>
+
             </CompanyProvider>
         </>)
 };

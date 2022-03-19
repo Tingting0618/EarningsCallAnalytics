@@ -42,7 +42,7 @@ export const Login = () => {
             </dialog>
             <section>
                 <form className="form--login" onSubmit={handleLogin}>
-                    <h1>Earnings Call Analytics Platform</h1>
+                    <h1>Earnings Call Text Analytics Platform</h1>
                     <h2>Please sign in</h2>
                     <fieldset>
                         <label htmlFor="inputUsername"> Username address </label>

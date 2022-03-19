@@ -7,14 +7,16 @@ import "./NavBar.css"
 export const NavBar = () => {
     const navigate = useNavigate()
     return (
+        <>
+        <h2>Earnings Call Text Analytics Platform</h2>
         <div className="nav">
             <ul className="navbar">
                 <li className="navbar__item">
-                    <Link className="nav-link" to="/">HomePage</Link>
+                    <Link className="nav-link" to="/">Dashboard</Link>
                 </li>
 
                 <li className="navbar__item">
-                    <Link className="nav-link" to="/company">Company Management</Link>
+                    <Link className="nav-link" to="/companys">Company Management</Link>
                 </li>
                 {
                     (localStorage.getItem("lu_token") !== null) ?
@@ -36,5 +38,6 @@ export const NavBar = () => {
                         </>
                 }        </ul>
         </div>
+        </>
     )
 }
