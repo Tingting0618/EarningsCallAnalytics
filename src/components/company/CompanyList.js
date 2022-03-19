@@ -4,7 +4,7 @@ import { Link, useNavigate } from "react-router-dom"
 
 
 export const CompanyList = () => {
-    const { companies, getCompanies,deleteCompany } = useContext(CompanyContext)
+    const { companies, getCompanies,deleteCompany,followCompany,unfollowCompany } = useContext(CompanyContext)
 
     useEffect(() => {
         getCompanies()
@@ -34,6 +34,7 @@ export const CompanyList = () => {
                         <div className="company__title">
                             {company.value}: {company.label}
                         </div>
+
                         <div className="company__edit">
                             <button className='btn btn-2'
                                 onClick={() => {
@@ -50,14 +51,20 @@ export const CompanyList = () => {
                             >Delete</button>
                         </div>
 
-                        <div className="company__delete">
+                        <div className="company__follow">
                             <button className='btn btn-2'
-                                // onClick={() => {
-                                //     deleteCompany(company.id)
-                                // }}
+                                onClick={() => {
+                                    followCompany(company.id)
+                                }}
                             >Follow</button>
                         </div>
-
+                        <div className="company__unfollow">
+                            <button className='btn btn-2'
+                                onClick={() => {
+                                    unfollowCompany(company.id)
+                                }}
+                            >UnFollow</button>
+                        </div>
                     </section>
                 );
             })}

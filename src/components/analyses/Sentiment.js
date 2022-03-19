@@ -29,7 +29,7 @@ export const SentimentAnalysis = () => {
         return (<section className="analysis" >
             <h3 className="analysis__name">Sentiment Analysis</h3>
             <div className="senti_sentence">
-                Pls input keywords
+                Please input a keyword that is contained in the selected transcript(s).
             </div>
         </section >)
     }

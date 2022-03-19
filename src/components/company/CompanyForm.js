@@ -28,7 +28,7 @@ export const CompanyForm = () => {
                             year: company.year,
                             quarter: company.quarter,
                             transcript: company.transcript,
-                            companyTypeId: company.company_type.id
+                            companyTypeId: company.company_type
                         })
                     })
             } else {

@@ -59,6 +59,27 @@ export const CompanyProvider = (props) => {
         body: JSON.stringify(company)
       }).then(getCompanies);
     }
+
+    const followCompany = (id) => {
+      return fetch(`http://localhost:8000/companies/${id}/follow`, {
+        method: "POST",
+        headers: {
+          Authorization: `Token ${localStorage.getItem("lu_token")}`,
+        },
+      })
+      .then(getCompanies)
+    };
+    const unfollowCompany = (id) => {
+      return fetch(`http://localhost:8000/companies/${id}/follow`, {
+        method: "DELETE",
+        headers: {
+          Authorization: `Token ${localStorage.getItem("lu_token")}`,
+        },
+      })
+      .then(getCompanies)
+    };
+
+
     const getCompanyTypes = () => {
       return fetch("http://localhost:8000/companytypes", {
         headers: {
@@ -82,7 +103,7 @@ export const CompanyProvider = (props) => {
 
     return (
         <CompanyContext.Provider value={{
-            companies,companyTypes,companyAnalysis,deleteCompany,updateCompany,getCompanyById, getCompanies,getCompanyAnalysis,createCompany,getCompanyTypes
+            companies,companyTypes,companyAnalysis,unfollowCompany,followCompany,deleteCompany,updateCompany,getCompanyById, getCompanies,getCompanyAnalysis,createCompany,getCompanyTypes
         }}>
             {props.children}
         </CompanyContext.Provider>
