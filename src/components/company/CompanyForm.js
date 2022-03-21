@@ -181,7 +181,7 @@ export const CompanyForm = () => {
                         companyTypeId: parseInt(currentCompany.companyTypeId),
                         id: parseInt(currentCompany.id)
                     };
-                    { companyId ? updateCompany(company).then(() => navigate("/companys")) : createCompany(company).then(() =>navigate("/companys")) }
+                    { companyId ? updateCompany(company).then(() => navigate("/companymgmt")) : createCompany(company).then(() =>navigate("/companymgmt")) }
                     // Send POST request to your API
                     // createCompany(company).then(() => navigate("/companys"));
                 }}

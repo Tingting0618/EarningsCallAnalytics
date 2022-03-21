@@ -10,7 +10,7 @@ export const CompanyProvider = (props) => {
     const [companyAnalysis, setCompanyAnalysis] = useState([])
 
     const getCompanies = () => {
-        return fetch("http://localhost:8000/companies", {
+        return fetch("http://localhost:8000/analyses", {
             headers: {
               Authorization: `Token fa2eba9be8282d595c997ee5cd49f2ed31f65bed`,
             },
@@ -29,7 +29,7 @@ export const CompanyProvider = (props) => {
     };
 
     const createCompany = (company) => {
-      return fetch("http://localhost:8000/companies", {
+      return fetch("http://localhost:8000/analyses", {
         headers: {
           Authorization: `Token ${localStorage.getItem("lu_token")}`,
           "Content-Type": "application/json"
@@ -61,7 +61,7 @@ export const CompanyProvider = (props) => {
     }
 
     const followCompany = (id) => {
-      return fetch(`http://localhost:8000/companies/${id}/follow`, {
+      return fetch(`http://localhost:8000/analyses/${id}/follow`, {
         method: "POST",
         headers: {
           Authorization: `Token ${localStorage.getItem("lu_token")}`,
@@ -70,7 +70,7 @@ export const CompanyProvider = (props) => {
       .then(getCompanies)
     };
     const unfollowCompany = (id) => {
-      return fetch(`http://localhost:8000/companies/${id}/follow`, {
+      return fetch(`http://localhost:8000/analyses/${id}/follow`, {
         method: "DELETE",
         headers: {
           Authorization: `Token ${localStorage.getItem("lu_token")}`,
@@ -89,7 +89,7 @@ export const CompanyProvider = (props) => {
     };
 
     const getCompanyAnalysis = (param) => {
-        return fetch("http://localhost:8000/companies"+param, {
+        return fetch("http://localhost:8000/analyses"+param, {
             headers: {
               Authorization: `Token fa2eba9be8282d595c997ee5cd49f2ed31f65bed`,
             //   Authorization: `Token ${localStorage.getItem("lu_token")}`,
