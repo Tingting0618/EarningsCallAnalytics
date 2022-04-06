@@ -18,7 +18,6 @@ h1, h2, h3, h4, h5, h6 {
   font-family:  'Roboto', sans-serif;
   letter-spacing: 2px;
 }
-
 p {
   margin-bottom: 1.5em;
   color: #d6fcff;
@@ -28,7 +27,9 @@ p {
 strong {
   font-weight: bold;
 }
-
+#root{
+  margin:2rem
+}
 .companys{
   display: flex;
   flex-direction: column;
@@ -60,4 +61,38 @@ strong {
 .registration__company {
   font-size: larger;
   font-weight: bolder;
+}
+
+/* CSS */
+.button-13 {
+  background-color: #fff;
+  border: 1px solid #d5d9d9;
+  border-radius: 8px;
+  box-shadow: rgba(213, 217, 217, .5) 0 2px 5px 0;
+  box-sizing: border-box;
+  color: #0f1111;
+  cursor: pointer;
+  display: inline-block;
+  font-family: "Amazon Ember",sans-serif;
+  font-size: 13px;
+  line-height: 29px;
+  padding: 0 10px 0 11px;
+  position: relative;
+  text-align: center;
+  text-decoration: none;
+  user-select: none;
+  -webkit-user-select: none;
+  touch-action: manipulation;
+  vertical-align: middle;
+  width: 100px;
+}
+
+.button-13:hover {
+  background-color: #f7fafa;
+}
+
+.button-13:focus {
+  border-color: #008296;
+  box-shadow: rgba(213, 217, 217, .5) 0 2px 5px 0;
+  outline: 0;
 }

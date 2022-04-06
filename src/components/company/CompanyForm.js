@@ -15,7 +15,6 @@ export const CompanyForm = () => {
         quarter: 1,
         transcript: ""
     });
-
     useEffect(() => {
         getCompanyTypes().then(() => {
             if (companyId) {

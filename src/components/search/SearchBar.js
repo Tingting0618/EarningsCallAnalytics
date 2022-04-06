@@ -65,13 +65,13 @@ export const SearchBar = () => {
                 />
 
                 <div>
-                    <label for="year">Start Year</label>
+                    <label for="year">Start Year: </label>
                     <input type="number" id="year" name="year"
                         min="1990" max="2030"
                         value={currentYear.start}
                         onChange={handleYearChangeStart} />
 
-                    <label for="year">End Year</label>
+                    <label for="year"> End Year: </label>
                     <input type="number" id="year" name="year"
                         min="1990" max="2030"
                         value={currentYear.end}
@@ -97,7 +97,7 @@ export const SearchBar = () => {
                         onChange={handleQuarChange}
                     />
                 </div>
-                <label for="keywords">Keywords</label>
+                <label for="keywords">Keywords: </label>
                 <input type="text" id="keywords" name="keywords"
                     value={currentKeywords.value}
                     onChange={handleKeywordsChange} />
@@ -105,6 +105,7 @@ export const SearchBar = () => {
 
                 </div>
             </header>
+            <br></br>
             <button
                 type="submit"
                 onClick={(evt) => {
@@ -120,7 +121,7 @@ export const SearchBar = () => {
                     // Send GET request to your API
                     getCompanyAnalysis(querystring)
                 }}
-                className="btn btn-primary"
+                className="button-13"
             >
                 Submit
             </button>

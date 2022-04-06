@@ -9,8 +9,8 @@ export const Home = () => {
                 <SearchBar />
                 <h2>Analysis</h2>
                 <article className="analyses">
-                    <TopWords />
                     <WordTrends />
+                    <TopWords />
                     <SentimentAnalysis />
                 </article>
             </>

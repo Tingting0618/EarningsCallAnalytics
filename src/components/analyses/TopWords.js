@@ -1,4 +1,4 @@
-import React, { useContext,useEffect } from "react"
+import React, { useContext } from "react"
 import "./Analysis.css"
 import { CompanyContext } from "../company/CompanyProvider";
 import {
