@@ -46,6 +46,7 @@ export const WordTrends = () => {
     const year = []
     const quarter = []
     const wordsArray = companyAnalysis.trends
+    const datasets=[]
 
     // if (wordsArray === undefined || wordsArray === null) {
     // } else if (wordsArray !== null) {
@@ -55,11 +56,13 @@ export const WordTrends = () => {
 
     if (wordsArray === undefined || wordsArray === null) {
     } else if (wordsArray !== null) {
-        wordsArray.forEach(element => trend_companies.push(element.companies)
-            && count.push(element.trend_counts)
-            && year.push(element.trend_year)
-            && quarter.push(element.trend_quarter)
-            && labels.push(element.trend_year.toString() + " Q" + element.trend_quarter.toString()));
+        wordsArray.forEach(element => 
+            // trend_companies.push(element.companies)&&
+            //  count.push(element.trend_counts)
+            // && year.push(element.trend_year)
+            // && quarter.push(element.trend_quarter)&& 
+            datasets.push({label:element.label,
+                            data:element.data.forEach(i=>count.push(i.trend_counts))}))
     }
 
     const data = {
