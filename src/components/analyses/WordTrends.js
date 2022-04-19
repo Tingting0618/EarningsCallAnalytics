@@ -40,13 +40,10 @@ export const WordTrends = () => {
 
     const { companyAnalysis } = useContext(CompanyContext)
 
-    const labels = []
-    const trend_companies = []
-    const count = []
-    const year = []
-    const quarter = []
+
     const wordsArray = companyAnalysis.trends
-    const datasets=[]
+ // const labels = []
+ // const datasets=[]
 
     // if (wordsArray === undefined || wordsArray === null) {
     // } else if (wordsArray !== null) {
@@ -54,32 +51,28 @@ export const WordTrends = () => {
     //     .filter((value, index, self) => self.indexOf(value) === index)
     // console.log(uniques_companies) }
 
-    if (wordsArray === undefined || wordsArray === null) {
-    } else if (wordsArray !== null) {
-        wordsArray.forEach(element => 
-            // trend_companies.push(element.companies)&&
-            //  count.push(element.trend_counts)
-            // && year.push(element.trend_year)
-            // && quarter.push(element.trend_quarter)&& 
-            datasets.push({label:element.label,
-                            data:element.data.forEach(i=>count.push(i.trend_counts))}))
-    }
-
+    // if (wordsArray === undefined || wordsArray === null) {
+    // } else if (wordsArray !== null) {
+    //     wordsArray.forEach(element => 
+    //         // trend_companies.push(element.companies)&&
+    //         //  count.push(element.trend_counts)
+    //         // && year.push(element.trend_year)
+    //         // && quarter.push(element.trend_quarter)&& 
+    //         datasets.push({label:element.label,
+    //                         data:element.data.forEach(i=>count.push(i.trend_counts))}))
+    // }
+    const labels = ['January', 'February', 'March', 'April'];
     const data = {
         labels,
         datasets: [
             {
                 label: 'Company 1 Name',
-                data: count,
-                borderColor: 'rgb(255, 99, 132)',
-                backgroundColor: 'rgba(255, 99, 132, 0.5)',
+                data: [1,2,3,4],
             },
-            //   {
-            //     label: 'Dataset 2',
-            //     data: labels.map(() => faker.datatype.number({ min: -1000, max: 1000 })),
-            //     borderColor: 'rgb(53, 162, 235)',
-            //     backgroundColor: 'rgba(53, 162, 235, 0.5)',
-            //   },
+            {
+                label: 'Company 2 Name',
+                data: [2,4,5,7],
+            }
         ],
     };
 
@@ -90,37 +83,3 @@ export const WordTrends = () => {
         </section >
     )
 }
-
-
-
-// export const WordTrends = () => {
-// const { companyAnalysis } = useContext(CompanyContext)
-// const wordsArray = companyAnalysis.trends
-//     return (
-//       <LineChart
-//         width={500}
-//         height={300}
-//         data={wordsArray}
-//         margin={{
-//           top: 5,
-//           right: 30,
-//           left: 20,
-//           bottom: 5
-//         }}
-//       >
-//         <CartesianGrid strokeDasharray="3 3" />
-//         <XAxis dataKey="trend_year" />
-//         <YAxis />
-//         <Tooltip />
-//         <Legend />
-//         <Line
-//           type="monotone"
-//           dataKey="trend_counts"
-//           stroke="#8884d8"
-//           activeDot={{ r: 8 }}
-//         />
-//         {/* <Line type="monotone" dataKey="uv" stroke="#82ca9d" /> */}
-//       </LineChart>
-//     );
-//   }
-
